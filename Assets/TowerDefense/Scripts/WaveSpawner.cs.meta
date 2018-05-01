@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 82f76e3c1e40c1946950693e041b087d
+timeCreated: 1519352494
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemy: {fileID: 131990, guid: 67aa44ad02e2a7d41bbf1d3bff1d85ac, type: 2}
+  - spawnPoint: {fileID: 437726, guid: 67aa44ad02e2a7d41bbf1d3bff1d85ac, type: 2}
+  - waveIndexText: {instanceID: 0}
+  - waveCountDownText: {instanceID: 0}
+  - lifeText: {instanceID: 0}
+  - moneyText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
