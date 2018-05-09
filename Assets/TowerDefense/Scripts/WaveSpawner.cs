@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour {
 
-    private Image bossPanel;
+    /*private Image bossPanel;
     private Text bossText;
-
+    */
     // [HideInInspector]
     public List <Transform> enemies;
 
@@ -27,16 +27,18 @@ public class WaveSpawner : MonoBehaviour {
     private int waveStart;
 
     private bool stop;
-    public Text waveIndexText;
-    public Text waveCountDownText;
-    public Text lifeText;
-    public Text moneyText;
-    public Text scoreText;
 
     private int round = 0;
 
+    //fETCHING PANELS
+    public GameObject bossPanel1, bossPanel2, roundPanel, ScorePanel, healthPanel, MoneyPanel;
+
+    
     private void Start()
     {
+        FetchButtonsAndTexts();
+
+
         stop = false;
         enemyDeathLimitperPhase = GameObject.Find("UserData").GetComponent<PlayerStats>().waveBlock *5*5+15;
         bossLimit = enemyDeathLimitperPhase - 2 - GameObject.Find("UserData").GetComponent<PlayerStats>().waveBlock* GameObject.Find("UserData").GetComponent<PlayerStats>().waveBlock;
@@ -45,10 +47,9 @@ public class WaveSpawner : MonoBehaviour {
         Debug.Log(enemyDeathLimitperPhase);
         enemies = new List<Transform>();
         waveStart=GameObject.Find("UserData").GetComponent<PlayerStats>().waveIndex;
-        bossPanel = GameObject.Find("BossPanel").GetComponent<Image>();
-        bossText = GameObject.Find("Sparkle").GetComponent<Text>();
-        bossPanel.enabled = false;
-        bossText.enabled = false;
+        bossPanel2.SetActive(false);
+        bossPanel1.SetActive(false);
+
     }
 
     void Update()
@@ -73,17 +74,27 @@ public class WaveSpawner : MonoBehaviour {
 
         countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         
-        waveIndexText.text = GameObject.Find("UserData").GetComponent<PlayerStats>().waveIndex.ToString();
-        lifeText.text = PlayerStats.life.ToString();
-        moneyText.text = PlayerStats.money.ToString();
-        scoreText.text = PlayerStats.score.ToString();
+        roundPanel.GetComponent<Text>().text = GameObject.Find("UserData").GetComponent<PlayerStats>().waveIndex.ToString();
+        healthPanel.GetComponent<Text>().text = PlayerStats.life.ToString();
+        MoneyPanel.GetComponent<Text>().text = PlayerStats.money.ToString();
+        ScorePanel.GetComponent<Text>().text = PlayerStats.score.ToString();
 
+    }
+
+    public void FetchButtonsAndTexts()
+    {
+        bossPanel1 = GameObject.Find("BossPanel");
+        bossPanel2 = GameObject.Find("Sparkle");
+        ScorePanel = GameObject.Find("Score");
+        roundPanel = GameObject.Find("Round");
+        healthPanel = GameObject.Find("health");
+        MoneyPanel = GameObject.Find("Money");
+        
     }
 
     IEnumerator ChangeScene()
     {
-        bossPanel.enabled = false;
-        bossText.enabled = false;
+        bossPanel2.SetActive(false);
         yield return new WaitForSeconds(3f);
         
         GameObject.Find("LevelManager").GetComponent<LevelManager>().LoadLevel("Ask");
@@ -161,7 +172,7 @@ public class WaveSpawner : MonoBehaviour {
                 Debug.Log("caso4");
                 making = true;
                 yield return new WaitForSeconds(timeBetweenWaves);
-                bossText.text = "Boss Wave Arrived!";
+                bossPanel2.GetComponent<Text>().text = "Boss Wave Arrived!";
                 for (int j = 0; j <= GameObject.Find("UserData").GetComponent<PlayerStats>().waveIndex; j++)
                 {
                         SpawnEnemy();
@@ -200,25 +211,18 @@ public class WaveSpawner : MonoBehaviour {
 
     IEnumerator Sparkle()
     {
-        bossPanel.enabled = true;
-        bossText.enabled = true;
+        bossPanel2.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = false;
-        bossText.enabled = false;
+        bossPanel2.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = true;
-        bossText.enabled = true;
+        bossPanel2.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = false;
-        bossText.enabled = false;
+        bossPanel2.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = true;
-        bossText.enabled = true;
+        bossPanel2.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = false;
-        bossText.enabled = false;
+        bossPanel2.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        bossPanel.enabled = true;
-        bossText.enabled = true;
+        bossPanel2.SetActive(true);
     }
 }

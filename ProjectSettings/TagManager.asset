@@ -14,6 +14,7 @@ TagManager:
   - Boss
   - SaveButton
   - Keyboard
+  - Turret
   layers:
   - Default
   - TransparentFX

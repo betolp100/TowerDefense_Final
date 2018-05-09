@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour {
     public float health;
     private bool imBoss;
 
+    private GameObject[] turrets;
+
     void Start()
     {
         target = Waypoints.waypoints[0];
@@ -38,6 +40,13 @@ public class Enemy : MonoBehaviour {
             PlayerStats.life--;
             if (PlayerStats.life <= 0)
             {
+                turrets = GameObject.FindGameObjectsWithTag("Turret");
+
+                foreach (GameObject turret in turrets)
+                {
+                    Destroy(turret);
+                }
+
                 GameObject.Find("LevelManager").GetComponent<LevelManager>().LoadLevel("Lose");
             }
             Destroy(gameObject);

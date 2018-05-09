@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour {
 
-    public GameObject exitpanel, endGame, returnToMenu, menuPanel;
+    
     public GameObject savedGame;
     public static BuildManager instance;
     public GameObject Turret_01_Prefab;
@@ -12,6 +12,8 @@ public class BuildManager : MonoBehaviour {
     private TurretBluePrint turretToBuild;
     public GameObject buildEffect;
     public Vector3 offset = new Vector3 (0,0,0);
+
+
 
     private void Awake()
     {
@@ -23,7 +25,7 @@ public class BuildManager : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-     }
+    }
 
     
     public bool CanBuild { get { return turretToBuild != null; } } //PROPERTY CHECK IF THE VARIABLE IS EQUAL TO NULL ONLY.
@@ -53,41 +55,6 @@ public class BuildManager : MonoBehaviour {
             turretToBuild = turret;
         }
 
-    public void ReturnToMainMenu()
-    {
-        GameObject.Find("LevelManager").GetComponent<LevelManager>().LoadLevel("Start");
-    }
+    
 
-    public void ExitGame()
-    {
-        GameObject.Find("LevelManager").GetComponent<LevelManager>().QuitLevel();
-    }
-
-    public void OpenExitPanel()
-    {
-        exitpanel.gameObject.SetActive(true);
-        endGame.gameObject.SetActive(false);
-        returnToMenu.gameObject.SetActive(false);
-    }
-
-    public void CloseExitPanel()
-    {
-        exitpanel.gameObject.SetActive(false);
-        endGame.gameObject.SetActive(true);
-        returnToMenu.gameObject.SetActive(true);
-    }
-
-    public void OpenExitPanelB()
-    {
-        menuPanel.gameObject.SetActive(true);
-        endGame.gameObject.SetActive(false);
-        returnToMenu.gameObject.SetActive(false);
-    }
-
-    public void CloseExitPanelB()
-    {
-        menuPanel.gameObject.SetActive(false);
-        endGame.gameObject.SetActive(true);
-        returnToMenu.gameObject.SetActive(true);
-    }
 }

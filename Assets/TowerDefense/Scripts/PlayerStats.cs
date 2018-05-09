@@ -12,9 +12,9 @@ public class PlayerStats : MonoBehaviour
     public int waveIndex;
     public int waveIndexStart;
     public int enemyCounter;
-    private int enemyStartCounter=0;
+    public int enemyStartCounter=0;
     public int waveBlock;
-    private int waveBlockStart = 0;
+    public int waveBlockStart = 0;
 
     protected static PlayerStats instance = null;
 

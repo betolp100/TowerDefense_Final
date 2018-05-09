@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671152c72b843b5469f06efcacee0b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 300
-  damage: 30
+  bulletSpeed: 2.5
+  damage: 45
   impactEffect: {fileID: 137854, guid: c7f08b4be11a18741ac1f5c5427ee940, type: 2}
   explosionRange: 1
 --- !u!135 &135026558070992408
