@@ -2,7 +2,7 @@
 
 public class ButtonsMaster : MonoBehaviour {
 
-    public GameObject exitpanel, endGame, returnToMenu, menuPanel;
+    public GameObject exitpanel, endGame, returnToMenu, menuPanel, sun;
 
     public GameObject[] turrets;
 
@@ -51,23 +51,25 @@ public class ButtonsMaster : MonoBehaviour {
         exitpanel = GameObject.Find("EndingGame");
         returnToMenu = GameObject.Find("Return");
         menuPanel = GameObject.Find("ReturningToMenu");
+        sun = GameObject.Find("Sun");
         Debug.Log("INICIANDO FETCHING");
     }
 
     public void ReturnToMainMenu()
     {
         turrets = GameObject.FindGameObjectsWithTag("Turret");
-
+        
         foreach (GameObject turret in turrets)
         {
             Destroy(turret);
         }
-
+        Destroy(sun);
         GameObject.Find("LevelManager").GetComponent<LevelManager>().LoadLevel("Start");
     }
 
     public void ExitGame()
     {
+        Destroy(sun);
         GameObject.Find("LevelManager").GetComponent<LevelManager>().QuitLevel();
     }
 
