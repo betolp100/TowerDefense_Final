@@ -13,8 +13,7 @@ public class BuildManager : MonoBehaviour {
     public GameObject buildEffect;
     public Vector3 offset = new Vector3 (0,0,0);
 
-
-
+  
     private void Awake()
     {
         if (instance == null)

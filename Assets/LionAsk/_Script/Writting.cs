@@ -86,14 +86,14 @@ public class Writting : MonoBehaviour
         {
             case 0:
                 FirstAnswer.text = "pez";
-                SecondAnswer.text = "creo que pato";
+                SecondAnswer.text = "Gato";
                 ThirdAnswer.text = "Hola1";
-                FourthAnswer.text = "SOMEBODY ONCE TOLD ME";
+                FourthAnswer.text = "SOMEBODY";
                 break;
             case 1:
                 FirstAnswer.text = "8";
-                SecondAnswer.text = "tiene que ser 2";
-                ThirdAnswer.text = "Mi libro, Luna de Plutón";
+                SecondAnswer.text = ":v";
+                ThirdAnswer.text = "Mi libro";
                 FourthAnswer.text = "Salud";
                 break;
             case 2:
@@ -109,10 +109,10 @@ public class Writting : MonoBehaviour
                 FourthAnswer.text = "Elotes";
                 break;
             default:
-                FirstAnswer.text = "Para perder el tiempo";
+                FirstAnswer.text = "baño?";
                 SecondAnswer.text = "Para comer";
-                ThirdAnswer.text = "Donde esta el baño";
-                FourthAnswer.text = "No se donde estoy";
+                ThirdAnswer.text = "3";
+                FourthAnswer.text = "2?";
                 break;
         }
 

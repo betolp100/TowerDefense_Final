@@ -14,14 +14,12 @@ public class Node : MonoBehaviour {
 
     [Header("OPTIONAL")] public GameObject turret;
 
-  
-
     void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
         buildManager = BuildManager.instance;
-
+        
     }
 
     public Vector3 GetBuildPosition()
